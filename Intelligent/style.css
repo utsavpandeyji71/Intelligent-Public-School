@@ -1,0 +1,107 @@
+:root {
+    --blue: #1e88e5;
+    --light-blue: #e3f2fd;
+    --chocolaty: #5d4037;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+* { margin:0; padding:0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+html { scroll-behavior: smooth; }
+
+/* Navbar */
+nav {
+    position: fixed; top: 0; width: 100%; padding: 15px 5%;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+    z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.logo-area { display: flex; align-items: center; gap: 10px; }
+.main-logo { height: 50px; }
+.school-name-nav { font-weight: 700; color: var(--blue); font-size: 1.2rem; }
+
+.nav-right { display: flex; align-items: center; gap: 40px; }
+.nav-links { display: flex; list-style: none; gap: 25px; }
+.nav-links a { text-decoration: none; color: #444; font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: var(--blue); border-bottom: 2px solid var(--blue); }
+
+.btn-admission {
+    background: var(--chocolaty); color: white; padding: 10px 25px;
+    border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s;
+}
+
+/* Hero Section */
+.hero { height: 100vh; position: relative; overflow: hidden; }
+.slide { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: 1s; }
+.slide.active { opacity: 1; }
+
+.hero-curved-overlay {
+    position: absolute; bottom: 0; left: 0; width: 60%; height: 100%;
+    background: rgba(30, 136, 229, 0.85);
+    clip-path: circle(85% at 0% 100%);
+    display: flex; align-items: center; padding-left: 8%; color: white;
+}
+.hero-content h1 { font-size: 3.8rem; line-height: 1.1; margin: 15px 0; }
+.admission-text { font-size: 1.4rem; color: #ffd54f; font-weight: 600; }
+.btn-hero { 
+    display: inline-block; margin-top: 25px; background: white; 
+    color: var(--blue); padding: 15px 40px; border-radius: 50px;
+    text-decoration: none; font-weight: bold; transition: 0.3s;
+}
+
+/* Notice Cards */
+.notice-card {
+    background: var(--light-blue); padding: 40px; border-radius: 20px;
+    position: relative; border-bottom: 5px solid var(--chocolaty); transition: 0.3s;
+}
+.notice-card:hover { transform: translateY(-10px); box-shadow: var(--shadow); }
+.badge { background: #ff5252; color: white; padding: 5px 15px; border-radius: 5px; font-size: 0.8rem; position: absolute; top: 15px; right: 15px; }
+.badge.blue { background: var(--blue); }
+
+/* Leadership Flip Cards */
+.flip-container { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; margin-top: 30px; }
+.flip-card { width: 300px; height: 380px; perspective: 1000px; }
+.flip-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; }
+.flip-card:hover .flip-inner { transform: rotateY(180deg); }
+.flip-front, .flip-back { 
+    position: absolute; width: 100%; height: 100%; backface-visibility: hidden; 
+    border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.flip-front { background: white; box-shadow: var(--shadow); border: 1px solid #eee; }
+.flip-front img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid var(--light-blue); }
+.flip-back { background: var(--chocolaty); color: white; transform: rotateY(180deg); padding: 30px; text-align: center; }
+
+/* Alumni Carousel */
+.alumni-track { display: flex; gap: 30px; overflow-x: auto; padding: 40px 0; scrollbar-width: none; }
+.alumni-card { 
+    min-width: 320px; background: white; padding: 30px; border-radius: 20px; 
+    text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.alumni-card.highlight { border: 2px solid var(--blue); transform: scale(1.05); }
+.alumni-img-box img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--light-blue); margin-bottom: 15px; }
+
+/* Form */
+.form-wrapper { max-width: 600px; margin: auto; padding: 50px; background: white; border-radius: 30px; box-shadow: var(--shadow); }
+.form-wrapper input { width: 100%; padding: 15px; margin-bottom: 20px; border: 2px solid #eee; border-radius: 10px; outline: none; }
+.form-wrapper button { width: 100%; background: var(--chocolaty); color: white; padding: 18px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+
+/* Footer */
+footer { background: var(--chocolaty); color: white; padding: 60px 5% 20px; }
+.footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; }
+.footer-col h3 { margin-bottom: 20px; color: var(--light-blue); }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.map-container iframe { width: 100%; height: 180px; border-radius: 15px; border: none; }
+
+/* Helpers */
+.section-padding { padding: 100px 8%; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+.center-title { text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: var(--chocolaty); }
+.bg-light { background: #f8fbff; }
+.whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2000; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+
+@media (max-width: 768px) {
+    .nav-links, .nav-right { display: none; }
+    .grid-2, .footer-grid { grid-template-columns: 1fr; }
+    .hero-curved-overlay { width: 100%; clip-path: none; padding: 20px; text-align: center; }
+}
